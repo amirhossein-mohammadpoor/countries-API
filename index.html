@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./dist/css/mapp.min.css">
+  <link rel="stylesheet" href="./dist/css/fa/style.css" data-locale="true">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="over-layer"></div>
+  <div class="container-fluid p-0">
+    <header>
+      <div class="top"></div>
+      <div class="bottom"></div>
+    </header>
+    <main class=" p-0 pt-lg-4 px-lg-5">
+      <div class="main-header py-3">
+        <h4>LEARN HOW TO WORK WITH APIs</h4>
+        <select name="select">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+      <div class="row m-0">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 country-info">
+          <h5 id="name">Country Name</h5>
+          <p>Native Name: <span id="native-name"></span></p>
+          <p>Capital: <span id="capital"></span></p>
+          <p>Region: <span id="region"></span></p>
+          <p>Population: <span id="population"></span></p>
+          <p>Language: <span id="language"></span></p>
+          <p>Timezone: <span id="timezone"></span></p>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 p-0 mb-2 calling-code">
+          <h5>CALLING CODE</h5>
+          <div>
+            <span id="calling-code">0</span>
+          </div>          
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 p-0 country-flag">
+          <img src="./world-map.jpg" alt="flag">
+        </div>
+      </div>
+      <div class="row m-0">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 p-0 country-weather">
+            <h5 id="capital">Capital Weather Report</h5>
+            <div class="country-weather-content">
+              <div class="weather-icon">
+                <img src="" alt="weather-icon">
+              </div>
+              <div>
+                <p>Wind Speed: <span id="wind-speed"></span>MS</p>
+                <p>Temperature: <span id="temperature"></span>C</p>
+                <p>Humedity: <span id="humidity"></span>%</p>
+                <p>Visibility: <span id="visibility"></span>m</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 p-0 country-geo">
+            <div id="app"></div>
+          </div>
+      </div>
+    </main>
+  </div>  
+  <script type="text/javascript" src="./dist/js/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="./dist/js/mapp.env.js"></script>
+  <script type="text/javascript" src="./dist/js/mapp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script src="./index.js"></script>
+
+</body>
+
+</html>

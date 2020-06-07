@@ -1,0 +1,141 @@
+body {
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.over-layer {
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  opacity: 0.7;
+  z-index: 45445;
+}
+
+header {
+  height: 125px;
+  width: 100%;
+  border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+header .top {
+  background-color: black;
+  height: 50%;
+}
+
+header .bottom {
+  height: 50%;
+}
+
+main  .main-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: black;
+  margin-bottom: 1rem;
+}
+
+main  .main-header h4 {
+  color: #fbc633;
+}
+
+main  .main-header select {
+  width: 50%;
+}
+
+main .country-info {
+  background-color: #3c3c3c;
+  box-shadow: 2.5px 4.3px 25px 0 #e5e5e5;
+  padding-top: 0.6rem;
+  height: 300px;
+}
+
+main .country-info h5 {
+  color: white;
+}
+
+main .country-info p {
+ color: #fbc633; 
+ margin-bottom: 5px;
+}
+
+main .country-info span {
+  color: white;
+}
+
+main .calling-code {
+  background-color: #fbc633;
+  height: 300px;
+  box-shadow: 2.5px 4.3px 25px 0 #e5e5e5;
+}
+
+main .calling-code  h5 {
+  color: white;
+  text-align: center;
+  background-color: black;
+  padding: 0.6rem 0rem;
+  margin: 0;
+}
+
+main .calling-code div {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+main .calling-code span {
+  text-align: center;
+  color: black;
+  font-size: 115px;
+} 
+
+main .country-flag {
+  height: 300px;
+  box-shadow: 2.5px 4.3px 25px 0 #e5e5e5;
+}
+
+main .country-flag img {
+  width: 100%;
+  height: 100%;
+}
+
+main .country-weather {
+  height: 300px;
+  box-shadow: 2.5px 4.3px 25px 0 #e5e5e5;
+}
+
+main .country-weather .weather-icon{
+    display: flex;
+    justify-content: center;
+}
+
+main .country-weather h5 {
+  background-color: #3c3c3c;
+  color: #fbc633;
+  text-align: center;
+  padding: 0.6rem 0rem;
+}
+
+main .country-weather p {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+main .country-weather p span {
+  color: lime;
+}
+
+main .country-geo {
+  height: 300px;
+  box-shadow: 2.5px 4.3px 25px 0 #e5e5e5;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
