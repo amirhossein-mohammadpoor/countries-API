@@ -12,7 +12,7 @@ $("document").ready(function () {
       },
       zoom: 4
     },
-    apiKey:  MAPP_API_KEY
+    apiKey: MAPP_API_KEY
   })
   app.addLayers()
   app.addZoomControls()
@@ -30,22 +30,35 @@ $.ajax({
   }
 })
 
+showCountryInfo = country => {
+  $("[alt='flag']").attr("src", country.flag)
+  $("#calling-code").text(country.callingCodes[0])
+  $("#name").text(country.name)
+  $("#native-name").text(country.nativeName)
+  $("#capital").text(country.capital)
+  $("#region").text(country.region)
+  $("#population").text(country.population)
+  $("#language").text(country.languages[0].name)
+  $("#timezone").text(country.timezones[0])
+}
+
+showCapitalWeather = (weather, capital) => {
+  $("h5#capital").text(capital)
+  $("[alt='weather-icon']").attr("src", `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`)
+  $("#wind-speed").text(weather.wind.speed)
+  $("#temperature").text(weather.main.temp | 0)
+  $("#humidity").text(weather.main.humidity)
+  $("#visibility").text(weather.visibility)
+  $(".over-layer").css("display", "none")
+}
+
 $("select").on("change", function (event) {
-  $(".over-layer").css("display", "block")
+  $(".over-layer").css("display", "flex")
   $.ajax({
     url: `https://restcountries.eu/rest/v2/name/${$(this).val()}`
   })
     .done(country => {
-      
-      $("[alt='flag']").attr("src", country[0].flag)
-      $("#calling-code").text(country[0].callingCodes[0])
-      $("#name").text(country[0].name)
-      $("#native-name").text(country[0].nativeName)
-      $("#capital").text(country[0].capital)
-      $("#region").text(country[0].region)
-      $("#population").text(country[0].population)
-      $("#language").text(country[0].languages[0].name)
-      $("#timezone").text(country[0].timezones[0])
+      showCountryInfo(country[0])
       app.addMarker({
         name: 'basic-marker',
         latlng: {
@@ -54,16 +67,18 @@ $("select").on("change", function (event) {
         }
       })
       $.ajax({
-        url: `http://api.openweathermap.org/data/2.5/weather?q=${country[0].capital.replace(" ","+")}&appid=${WEATHER_API_KEY}&units=metric`
+        url: `http://api.openweathermap.org/data/2.5/weather?q=${country[0].capital}&appid=${WEATHER_API_KEY}&units=metric`,
+        error: (xhr, status, error) => {
+          $("h5#capital").text("Capital not found")          
+          $("#wind-speed").text("?")
+          $("#temperature").text("?")
+          $("#humidity").text("?")
+          $("#visibility").text("?")
+          $(".over-layer").css("display", "none")
+        }
       })
         .done(weather => {
-          $("h5#capital").text(country[0].capital)
-          $("[alt='weather-icon']").attr("src", `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`)
-          $("#wind-speed").text(weather.wind.speed)
-          $("#temperature").text(weather.main.temp | 0)
-          $("#humidity").text(weather.main.humidity)
-          $("#visibility").text(weather.visibility)
-          $(".over-layer").css("display", "none")
+          showCapitalWeather(weather, country[0].capital)
         })
     })
 })

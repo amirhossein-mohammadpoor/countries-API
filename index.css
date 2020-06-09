@@ -8,6 +8,8 @@ body {
 
 .over-layer {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   top: 0;
   width: 100%;
@@ -112,6 +114,7 @@ main .country-weather {
 main .country-weather .weather-icon{
     display: flex;
     justify-content: center;
+    background-color:  cornflowerblue;
 }
 
 main .country-weather h5 {
